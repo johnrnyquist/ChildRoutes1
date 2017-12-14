@@ -7,10 +7,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports:
-        [
-          RouterTestingModule.withRoutes([])
-        ],
+      imports: [RouterTestingModule.withRoutes([])],
       declarations: [
         AppComponent
       ],
@@ -29,14 +26,14 @@ describe('AppComponent', () => {
   it('should have a link to OneComponent', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     const debugElements = fixture.debugElement.queryAll(By.directive(RouterLinkWithHref));
-    const index = debugElements.findIndex(de => de.properties['href'] === 'one');
-    expect(index).not.toBeGreaterThan(-1);
+    const index = debugElements.findIndex(de => de.attributes['routerLink'] === '/one');
+    expect(index).toBeGreaterThan(-1);
   }));
   it('should have a link to TwoComponent', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     const debugElements = fixture.debugElement.queryAll(By.directive(RouterLinkWithHref));
-    const index = debugElements.findIndex(de => de.properties['href'] === 'two');
-    expect(index).not.toBeGreaterThan(-1);
+    const index = debugElements.findIndex(de => de.attributes['routerLink'] === '/two');
+    expect(index).toBeGreaterThan(-1);
   }));
   it('should have a router outlet', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
